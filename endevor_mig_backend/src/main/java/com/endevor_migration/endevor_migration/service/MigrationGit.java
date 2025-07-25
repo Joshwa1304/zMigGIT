@@ -45,7 +45,7 @@ public class MigrationGit {
         map.put("STAGE", "BRANCH");
         map.put("SUBSYSTEM", "SUB-FOLDER");
         map.put("TYPE", "SUB-FOLDER");
-        map.put("ELEMENT", "FILE");
+        map.put("ELEMENT\n \n\tElement 1\n\tElement 2", "REPO FILES\n \n\tFile 1\n\tFile 2");
         return map;
     }
 

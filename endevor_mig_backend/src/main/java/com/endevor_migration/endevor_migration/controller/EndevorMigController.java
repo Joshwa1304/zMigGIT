@@ -85,18 +85,18 @@ public class EndevorMigController {
 
         if (source.equalsIgnoreCase("endevor")) {
             migGit.transform();
-            msg.append("Transformation completed successfully.\n");
+            msg.append("✅ Transformation completed and files were saved locally.\n");
         } else {
-            msg.append("Invalid source platform provided.\n");
+            msg.append("❌ Invalid source platform provided.\n");
         }
 
         if ("target".equalsIgnoreCase(type)) {
             boolean res = migGit.gitPush(platform);
 
             if (res) {
-                msg.append("Changes pushed to Git repository.");
+                msg.append("✅ Changes pushed to Git repository.");
             } else {
-                msg.append("Failed to push changes to Git.");
+                msg.append("❌ Failed to push changes to Git.");
             }
 
         }
@@ -129,9 +129,9 @@ public class EndevorMigController {
     public String delFolder() {
         boolean res = validateService.delSubFolder();
         if (res) {
-            return "Contents of the local folder deleted successfully.";
+            return "✅ Contents of the local folder deleted successfully.";
         } else {
-            return "Failed to delete some contents.";
+            return "❌ Failed to delete some contents.";
         }
 
     }
@@ -140,7 +140,7 @@ public class EndevorMigController {
     public String validateReport() {
 
         System.out.println("Reports Create SuccessFully");
-        return "Reports Create SuccessFully.";
+        return "✅ Reports Create SuccessFully.";
     }
 
     @GetMapping("/reports/filesize")

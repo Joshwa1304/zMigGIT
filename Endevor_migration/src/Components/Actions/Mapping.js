@@ -11,7 +11,7 @@ function Mapping() {
     const fetchMapping = async () => {
       try {
         const response = await fetch('http://localhost:9090/mapping');
-        
+
         if (!response.ok) {
           throw new Error(`Server responded with status ${response.status}`);
         }
@@ -63,8 +63,17 @@ function Mapping() {
             <tbody>
               {Object.entries(mappingData).map(([key, value]) => (
                 <tr key={key}>
-                  <td>{key}</td>
-                  <td>{value}</td>
+                  <td>
+                    {key.split('\n').map((line, idx) => (
+                      <div key={idx}>{line}</div>
+                    ))}
+                  </td>
+
+                  <td>
+                    {value.split('\n').map((line, idx) => (
+                      <div key={idx}>{line}</div>
+                    ))}
+                  </td>
                 </tr>
               ))}
             </tbody>

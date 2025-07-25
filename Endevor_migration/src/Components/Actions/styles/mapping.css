@@ -47,3 +47,8 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.mapping_table td {
+  vertical-align: top;
+  padding: 8px;
+  white-space: pre-wrap; /* just in case */
+}

@@ -86,7 +86,7 @@ function TransformSection({ setLoading, setSuccess, setTransformOutput }) {
         }
       }, FAST_FORWARD_TIME / steps);
 
-      if (response.ok && result.toLowerCase().includes("success")) {
+      if (response.ok && result.toLowerCase().includes("completed")) {
         setSuccess(true);
         setSuccessState(true);
       } else {
