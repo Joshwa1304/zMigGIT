@@ -14,5 +14,5 @@ server:
   port: 9090
 
 custom:
-  base-path: D:\\Test
-  report-path: D:\\Report
+  base-path: C:\\Test
+  report-path: C:\\Report
