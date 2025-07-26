@@ -8,11 +8,11 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017
-      database: test6
+      database: test
 
 server:
   port: 9090
 
 custom:
-  base-path: D:\\Test21
-  report-path: D:\\Demo
+  base-path: D:\\Test
+  report-path: D:\\Report

@@ -85,8 +85,8 @@ public class MigrationGit {
             MongoCollection<Document> eleMasterCollection = database.getCollection("ELEMENTMASTER");
             MongoCollection<Document> eleContentCollection = database.getCollection("ELEMENTCONTENT");
 
-            Bson SystemFields = Projections.fields(Projections.include("system"), Projections.exclude());
-            Bson SubSysFields = Projections.fields(Projections.include("system", "subsystem"), Projections.exclude());
+            // Bson SystemFields = Projections.fields(Projections.include("system"), Projections.exclude());
+            // Bson SubSysFields = Projections.fields(Projections.include("system", "subsystem"), Projections.exclude());
             Bson EleMasterFields = Projections.fields(
                     Projections.include("system", "subsys", "type", "element"),
                     Projections.excludeId());
