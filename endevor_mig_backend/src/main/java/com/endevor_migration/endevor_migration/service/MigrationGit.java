@@ -49,17 +49,20 @@ public class MigrationGit {
         return map;
     }
 
-    public void transform() {
+    public boolean transform() {
         File folder = new File(basePath);
-
+        boolean res = false;
         if (folder.exists()) {
             dataRead();
+            res = true;
         } else {
-            boolean res = folder.mkdirs();
-            if (res) {
+            boolean success = folder.mkdirs();
+            if (success) {
                 dataRead();
+                res = true;
             }
         }
+        return res;
     }
 
     private void dataRead() {

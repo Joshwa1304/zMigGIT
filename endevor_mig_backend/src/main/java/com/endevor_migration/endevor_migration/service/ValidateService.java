@@ -39,6 +39,13 @@ public class ValidateService {
     @Value("${spring.data.mongodb.database}")
     private String dbName;
 
+    public boolean folderCreation(){
+
+        File folder = new File(reportPath);
+
+        return folder.exists() || folder.mkdirs();
+    }
+
     public void writeReport() {
         String filePath = reportPath + "\\Report.html";
 

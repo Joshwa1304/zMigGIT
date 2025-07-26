@@ -84,21 +84,29 @@ public class EndevorMigController {
         StringBuilder msg = new StringBuilder();
 
         if (source.equalsIgnoreCase("endevor")) {
-            migGit.transform();
-            msg.append("✅ Transformation completed and files were saved locally.\n");
+            boolean transformRes = migGit.transform();
+            if (transformRes) {
+                msg.append("✅ Transformation completed and files were saved locally.\n");
+            }
+
+            else {
+                msg.append("❌ Invalid source platform provided.\n");
+            }
         } else {
-            msg.append("❌ Invalid source platform provided.\n");
+            msg.append("⚠️ Please select a target platform");
         }
 
         if ("target".equalsIgnoreCase(type)) {
-            boolean res = migGit.gitPush(platform);
+            boolean gitPushRes = migGit.gitPush(platform);
 
-            if (res) {
+            if (gitPushRes) {
                 msg.append("✅ Changes pushed to Git repository.");
             } else {
                 msg.append("❌ Failed to push changes to Git.");
             }
 
+        } else {
+            msg.append("⚠️ Please select a source platform");
         }
 
         return ResponseEntity.ok(msg.toString());
@@ -146,7 +154,11 @@ public class EndevorMigController {
     @GetMapping("/reports/filesize")
     public ResponseEntity<Resource> openReport() throws FileNotFoundException {
 
-        validateService.writeReport();
+        boolean sizeRes = validateService.folderCreation();
+
+        if (sizeRes) {
+            validateService.writeReport();
+        }
 
         String filePath = reportPath + "\\Report.html";
 
@@ -167,7 +179,10 @@ public class EndevorMigController {
     @GetMapping("/reports/filecount")
     public ResponseEntity<Resource> openCount() throws FileNotFoundException {
 
-        validateService.validateReport();
+        boolean countRes = validateService.folderCreation();
+        if (countRes) {
+            validateService.validateReport();
+        }
 
         String filePath = reportPath + "\\ValidateReport.html";
 
