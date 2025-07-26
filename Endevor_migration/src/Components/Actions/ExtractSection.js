@@ -1,11 +1,12 @@
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { LuFileJson } from "react-icons/lu";
+import { PiArrowFatLineDownFill } from "react-icons/pi";
 
 function ExtractSection({ selectedFile, handleFileChange }) {
   return (
     <div className="chosefile">
       <h3>Drop a JSON file here</h3>
-      <p className="arrow">👇🏾</p>
+      <p className="arrow"><PiArrowFatLineDownFill /></p>
 
       <input
         type="file"

@@ -32,7 +32,17 @@
 /* Down arrow */
 .arrow {
     font-size: 50px;
+    animation: bounce 1s ease-in-out infinite;
     margin: 10px 0;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* Stylish file input */
